@@ -1,0 +1,111 @@
+import pandas as pd
+
+import utilidades as utl
+menu = 0
+while (menu != 4):
+
+    meses = ["Enero","Febrero","Marzo", "Abril", "Mayo","Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    sede_uno_ventas= []
+    sede_dos_ventas = []
+    sede_tres_ventas = []
+    sede_uno_gastos = []
+    sede_dos_gastos = []
+    sede_tres_gastos = []
+
+    ventas_gastos_sedes = { "Mes": meses,
+                        "Ventas-Sede1":sede_uno_ventas,
+                        "Ventas-Sede2":sede_dos_ventas,
+                        "Ventas-Sede3":sede_tres_ventas,
+                        # "Gastos-Sede1":sede_uno_gastos,
+                        # "Gastos-Sede2":sede_dos_gastos,
+                        # "Gastos-Sede3":sede_tres_gastos,
+                    }
+
+############## MENU ############## 
+    print("\033[1;33m" + """
+----------------------------------------------------------------------
+                Bienvenido al sistema de ventas y gastos
+----------------------------------------------------------------------
+    1. Registrar ventas por mes
+    2. Registrar gastos por mes
+    3. Visualizar informacion 
+    4. Visualizar Graficos
+    5. Salir de la aplicación
+  """
+          "\033[0;m")
+
+    menu = utl.convertir_entero(input("Ingrese una opcion: "))
+    utl.clear()
+
+    #Registrar ventas por mes
+    if (menu == 1):
+
+        #Sub menu para el ingreso de datos de ventar por sede
+        submenu = 0
+        while (submenu != 4):
+
+            print("\033[1;32m" + """
+    ----------------------------------------------------------------------
+                    INGRESO DE DATOS DE VENTAS POR SEDE
+    ----------------------------------------------------------------------
+        1. Ventas Sede 1
+        2. Ventas Sede 2
+        3. Ventas Sede 3
+        4. Regresar
+            """
+                    "\033[0;m")
+            submenu = utl.convertir_entero(input("Ingrese una opcion: "))
+
+            #sede_1
+            if submenu == 1:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_uno_ventas.append(valor)
+                print(sede_uno_ventas)
+            #sede_2
+            if submenu == 2:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_dos_ventas.append(valor)
+            #sede_3
+            if submenu == 3:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_tres_ventas.append(valor)
+    #Registrar ventas por mes                
+    if (menu == 2):
+
+        #Sub menu para el ingreso de datos de ventar por sede
+        submenu = 0
+        while (submenu != 4):
+
+            print("\033[1;35m" + """
+    ----------------------------------------------------------------------
+                    INGRESO DE DATOS DE GASTOS POR SEDE
+    ----------------------------------------------------------------------
+        1. Gastos Sede 1
+        2. Gastos Sede 2
+        3. Gastos Sede 3
+        4. Regresar
+            """
+                    "\033[0;m")
+            submenu = utl.convertir_entero(input("Ingrese una opcion: "))
+            
+            #sede_1 - Gastos
+            if submenu == 1:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_uno_gastos.append(valor)
+            #sede_2 - Gastos
+            if submenu == 2:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_dos_gastos.append(valor)
+            #sede_3 - Gastos
+            if submenu == 3:
+                for mes in meses:
+                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    sede_tres_gastos.append(valor)
+    if (menu == 3):
+        print(pd.DataFrame(ventas_gastos_sedes))
+        break
