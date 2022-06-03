@@ -28,6 +28,17 @@ def clear():
 	    _= system('clear')
 
 def grafica_barras(meses:list,sede_1:list,sede_2:list,sede_3:list,titulo:str,color:str,tipo:str):
+    """funcion encargada de graficar las dos graficas de barras y de lineas de acuerdo al parametro establecido
+
+    Args:
+        meses (list): lista con los meses (eje x)
+        sede_1 (list): lista con los valores de las sede_1 (eje y)
+        sede_2 (list): lista con los valores de las sede_2 (eje y)
+        sede_3 (list): lista con los valores de las sede_3 (eje y)
+        titulo (str): titulo para la agrupacion de la grafica y titulo de descarga
+        color (str): color de las graficas
+        tipo (str): tipo de grafica puede ser => "l" = lineal, "b" = barras
+    """
 
     if tipo == 'b':
         fig,ventas_sedes=plt.subplots(3,1,figsize=(12,7.5),label=f"{titulo}")
