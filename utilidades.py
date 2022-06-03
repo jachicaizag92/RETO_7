@@ -1,5 +1,5 @@
 from os import system, name
-
+import matplotlib.pyplot as plt
 
 
 def convertir_entero (valor):
@@ -26,3 +26,26 @@ def clear():
         _= system('cls')
     else:
 	    _= system('clear')
+
+def grafica_barras(meses:list,sede_1:list,sede_2:list,sede_3:list,titulo:str,color:str,tipo:str):
+
+    if tipo == 'b':
+        fig,ventas_sedes=plt.subplots(3,1,figsize=(12,7.5),label=f"{titulo}")
+        plt.suptitle(f'{titulo}',fontsize=20, color=f"{color}")
+        ventas_sedes[0].bar(meses,sede_1, color=f"{color}", width=0.7)
+        ventas_sedes[0].legend(["SEDE 1"])
+        ventas_sedes[1].bar(meses,sede_2, color=f"{color}", width=0.7)
+        ventas_sedes[1].legend(["SEDE 2"])
+        ventas_sedes[2].bar(meses,sede_3, color=f"{color}", width=0.7)
+        ventas_sedes[2].legend(["SEDE 3"])
+        plt.show()
+    elif tipo == 'l':
+        fig,ventas_sedes=plt.subplots(3,1,figsize=(12,7.5),label=f"{titulo}")
+        plt.suptitle(f'{titulo}',fontsize=20, color=f"{color}")
+        ventas_sedes[0].plot(meses,sede_1, color=f"{color}")
+        ventas_sedes[0].legend(["SEDE 1"])
+        ventas_sedes[1].plot(meses,sede_2, color=f"{color}")
+        ventas_sedes[1].legend(["SEDE 2"])
+        ventas_sedes[2].plot(meses,sede_3, color=f"{color}")
+        ventas_sedes[2].legend(["SEDE 3"])
+        plt.show()       
