@@ -1,25 +1,29 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 import utilidades as utl
+
+# meses = ["Enero","Febrero","Marzo", "Abril", "Mayo","Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+
+meses = ["Enero","Febrero"]
+sede_uno_ventas= [1,2]
+sede_dos_ventas = [1,2]
+sede_tres_ventas = [1,2]
+sede_uno_gastos = [1,2]
+sede_dos_gastos = [1,2]
+sede_tres_gastos = [1,2]
+
+ventas_gastos_sedes = { "Mes": meses,
+                    "Ventas-Sede1":sede_uno_ventas,
+                    "Ventas-Sede2":sede_dos_ventas,
+                    "Ventas-Sede3":sede_tres_ventas,
+                    "Gastos-Sede1":sede_uno_gastos,
+                    "Gastos-Sede2":sede_dos_gastos,
+                    "Gastos-Sede3":sede_tres_gastos,
+                }
 menu = 0
 while (menu != 4):
 
-    meses = ["Enero","Febrero","Marzo", "Abril", "Mayo","Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    sede_uno_ventas= []
-    sede_dos_ventas = []
-    sede_tres_ventas = []
-    sede_uno_gastos = []
-    sede_dos_gastos = []
-    sede_tres_gastos = []
-
-    ventas_gastos_sedes = { "Mes": meses,
-                        "Ventas-Sede1":sede_uno_ventas,
-                        "Ventas-Sede2":sede_dos_ventas,
-                        "Ventas-Sede3":sede_tres_ventas,
-                        # "Gastos-Sede1":sede_uno_gastos,
-                        # "Gastos-Sede2":sede_dos_gastos,
-                        # "Gastos-Sede3":sede_tres_gastos,
-                    }
 
 ############## MENU ############## 
     print("\033[1;33m" + """
@@ -59,18 +63,42 @@ while (menu != 4):
             #sede_1
             if submenu == 1:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede                            
                     sede_uno_ventas.append(valor)
                 print(sede_uno_ventas)
             #sede_2
             if submenu == 2:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede                            
                     sede_dos_ventas.append(valor)
             #sede_3
             if submenu == 3:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede                            
                     sede_tres_ventas.append(valor)
     #Registrar ventas por mes                
     if (menu == 2):
@@ -94,18 +122,55 @@ while (menu != 4):
             #sede_1 - Gastos
             if submenu == 1:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede                            
                     sede_uno_gastos.append(valor)
             #sede_2 - Gastos
             if submenu == 2:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede
                     sede_dos_gastos.append(valor)
             #sede_3 - Gastos
             if submenu == 3:
                 for mes in meses:
-                    valor = int(input(f"ingrese el valor del mes {mes}: "))
+                    #Validación numero
+                    validar_numero = False
+                    while validar_numero == False:
+                        valor = input(f"ingrese el valor del mes {mes}: ")
+                        if not valor.isnumeric():
+                            print("el valor no es numerico")
+                        else:
+                            validar_numero = True
+                        #Agregamos el valor a la lista de la respectiva sede                            
                     sede_tres_gastos.append(valor)
     if (menu == 3):
-        print(pd.DataFrame(ventas_gastos_sedes))
-        break
+        print("\033[1;36m" + """
+    ----------------------------------------------------------------------
+                           VISUALIZACION DE DATOS
+    ----------------------------------------------------------------------\n
+            """
+                    "\033[0;m")
+        submenu = 0
+        while (submenu != 4):
+
+            print(pd.DataFrame(ventas_gastos_sedes))
+            submenu = 4
+    input("\nOprima tecla enter para continuar...")
+    if (menu == 4):
+        plt.plot(ventas_gastos_sedes)
+        plt.show()
