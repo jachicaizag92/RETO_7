@@ -168,8 +168,12 @@ while (menu != 4):
         submenu = 0
         while (submenu != 4):
             #impresion en pantalla de el dataframe
-            print(pd.DataFrame(ventas_gastos_sedes))
-            submenu = 4
+            if len(sede_uno_ventas) == 12 and len(sede_dos_ventas) == 12 and len(sede_tres_ventas) == 12:
+                print(pd.DataFrame(ventas_gastos_sedes))
+                submenu = 4
+            else:
+                print("\033[1;31m" +"Actualmente no hay datos para graficar...\033[0;m ")
+                submenu = 4
         input("\nOprima tecla enter para continuar...")
         utl.clear()
     if (menu == 4):
@@ -197,7 +201,9 @@ while (menu != 4):
                     utl.grafica_barras(meses,sede_dos_ventas,sede_dos_ventas,sede_tres_ventas,"GRAFICA VENTAS DE LAS TRES SEDES", "g","b")
                     submenu = 4
                 else:
+                    utl.clear()
                     print("\033[1;31m" +"Actualmente no hay datos para graficar...\033[0;m ")
+                    
             if opc == 2:
                 utl.clear() 
                 if len(sede_uno_gastos) == 12 and len(sede_dos_gastos) == 12 and len(sede_tres_gastos) == 12:
@@ -205,7 +211,9 @@ while (menu != 4):
                     utl.grafica_barras(meses,sede_dos_gastos,sede_dos_gastos,sede_tres_gastos,"GRAFICA GASTOS DE LAS TRES SEDES", "r", "b")
                     submenu = 4
                 else:
+                    utl.clear()
                     print("\033[1;31m" +"Actualmente no hay datos para graficar...\033[0;m ")
+                    
             if opc == 3:
                 utl.clear() 
                 if len(sede_uno_ventas) == 12 and len(sede_dos_ventas) == 12 and len(sede_tres_ventas) == 12:
@@ -213,7 +221,9 @@ while (menu != 4):
                     utl.grafica_barras(meses,sede_dos_ventas,sede_dos_ventas,sede_tres_ventas,"GRAFICA VENTAS DE LAS TRES SEDES", "g","l")
                     submenu = 4
                 else:
+                    utl.clear()
                     print("\033[1;31m" +"Actualmente no hay datos para graficar...\033[0;m ")
+                    
             if opc == 4:
                 utl.clear() 
                 if len(sede_uno_gastos) == 12 and len(sede_dos_gastos) == 12 and len(sede_tres_gastos) == 12:
@@ -221,7 +231,9 @@ while (menu != 4):
                     utl.grafica_barras(meses,sede_dos_gastos,sede_dos_gastos,sede_tres_gastos,"GRAFICA GASTOS DE LAS TRES SEDES", "r", "l")
                     submenu = 4
                 else:
+                    utl.clear()
                     print("\033[1;31m" +"Actualmente no hay datos para graficar...\033[0;m ")
+                    
             if opc == 5:
                 submenu = 5
                 print("Saliendo del programa...")
