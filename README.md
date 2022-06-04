@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------------------------------------
-                                            VENTAS Y GASTOS
+                                                  VENTAS Y GASTOS
 ------------------------------------------------------------------------------------------------------------
 
-                                                IDENTIFICAR
+                                                     IDENTIFICAR
 ------------------------------------------------------------------------------------------------------------
 tiene como proposito crear una aplicación que nos permita por medios de menus gestionar las ventas y gastos
 por sede de un negocio de tecnologia, donde sus gastos y respectivas ventas se deberan capturar mes a mes.
 
-                                                DEFINICIÓN
+                                                     DEFINICIÓN
 ------------------------------------------------------------------------------------------------------------
 Se debe implementar una funciones que validen:
     * numeros enteros en miles, sin comas ni puntos.
